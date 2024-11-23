@@ -1,53 +1,81 @@
-# AI-3018: Copilot Foundations
+---
+page_type: sample
+languages:
+- azdeveloper
+- bicep
+products:
+- azure
+urlFragment: azd-aistudio-starter
+name: Azure AI Studio starter template
+description: Creates an Azure AI Studio hub, project and required dependent resources including Azure OpenAI Service, Cognitive Search and more.
+---
+<!-- YAML front-matter schema: https://review.learn.microsoft.com/en-us/help/contribute/samples/process/onboarding?branch=main#supported-metadata-fields-for-readmemd -->
 
-Companion Material for Class Delivery by [Alexander Kastil](https://www.integrations.at/kontakt-impressum.aspx) containing:
+# Azure AI Studio Starter Template
 
-  - [Instructor Demos](./demos)
-  - [Requirements / tooling](./tooling)
-    - [Register Azure Pass](./tooling/05-azurepass)
-    - [Git & GitHub Basics](./tooling/01-git)
-    - [Visual Studio Code Intro](./tooling/02-vscode)
-    - [Document Repos using Markdown](./tooling/03-markdown)
-    - [Using Azure CLI & Cloud Shell](./tooling/04-cli)
-    - [Docker and WSL Setup](./tooling/08-docker-wsl)
-    - [Configure VS Code REST Client Extension](./tooling/07-rest-client)
-  - [Labs](https://learn.microsoft.com/en-us/training/paths/copilot-foundations/)
+### Quickstart
+To learn how to get started with any template, follow the steps in [this quickstart](https://learn.microsoft.com/azure/developer/azure-developer-cli/get-started?tabs=localinstall&pivots=programming-language-nodejs) with this template(`Azure-Samples/azd-aistudio-starter`)
 
-## Required Cloud Resources
+This quickstart will show you how to authenticate on Azure, initialize using a template, provision infrastructure and deploy code on Azure via the following commands:
 
-- [Github User Account](https://github.com/)
+```bash
+# Log in to azd. Only required once per-install.
+azd auth login
 
-- Azure Subscription:
+# First-time project setup. Initialize a project in the current directory, using this template.
+azd init --template Azure-Samples/azd-aistudio-starter
 
-  - [Azure Passes](https://www.microsoftazurepass.com/) with [Code](./tooling/05-AzurePass)
-  - Paid or MSDN Subscriptions. Please do not use a Production Subscription for Training
-  - [Azure Trial Subscription](https://azure.microsoft.com/en-us/free/)
+# Provision and deploy to Azure
+azd up
+```
 
-  > Note: Azure Passes can only be used once per e-mail account. Please do not use Azure AD Accounts. A guide on how to use your Azure Pass can be found [here](./tooling/05-AzurePass)
+### Provisioned Azure Resources
 
-- Copilot Studio License:
+This template creates everything you need to get started with Azure AI Studio:
 
+- [AI Hub Resource](https://learn.microsoft.com/azure/ai-studio/concepts/ai-resources)
+- [AI Project](https://learn.microsoft.com/azure/ai-studio/how-to/create-projects)
+- [OpenAI Service](https://learn.microsoft.com/azure/ai-services/openai/)
+- [Online Endpoint](https://learn.microsoft.com/azure/machine-learning/concept-endpoints-online?view=azureml-api-2)
+- [AI Search Service](https://learn.microsoft.com/azure/search/) *(Optional, enabled by default)*
 
+The provisioning will also deploy any models specified within the `./infra/ai.yaml`.
 
-## Exam
+For a list of supported models see [Azure OpenAI Service Models documentation](https://learn.microsoft.com/azure/ai-services/openai/concepts/models)
 
-[Exam AZ-204: Developing Solutions for Microsoft Azure](https://docs.microsoft.com/en-us/learn/certifications/exams/az-204)
+The template also includes dependent resources required by all AI Hub resources:
 
-## Contributing
+- [Storage Account](https://learn.microsoft.com/azure/storage/blobs/)
+- [Key Vault](https://learn.microsoft.com/azure/key-vault/general/)
+- [Application Insights](https://learn.microsoft.com/azure/azure-monitor/app/app-insights-overview) *(Optional, enabled by default)*
+- [Container Registry](https://learn.microsoft.com/azure/container-registry/) *(Optional, enabled by default)*
 
-Feel free to contribute. When contribute implement your changes / additions on a feature branch in your fork and issue a pull request after completion. An introduction video into forks and pull requests can be found [here](https://www.youtube.com/watch?v=nT8KGYVurIU)
+### Optional Configuration
 
-## License & Re-Use
+- To disable AI Search, run `azd config set USE_SEARCH_SERVICE false`
+- To disable Application Insights, run `azd config set USE_APPLICATION_INSIGHTS false`
+- To disable Container Registry, run `azd config set USE_CONTAINER_REGISTRY false`
 
-This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License
+By default this template will use a default naming convention to prevent naming collisions within Azure.
+To override default naming conventions the following can be set.
 
-Permission is hereby granted to to use, modify, and distribute the workshop materials provided under the following conditions:
+- `AZUREAI_HUB_NAME` - The name of the AI Studio Hub resource
+- `AZUREAI_PROJECT_NAME` - The name of the AI Studio Project
+- `AZUREAI_ENDPOINT_NAME` - The name of the AI Studio online endpoint used for deployments
+- `AZURE_OPENAI_NAME` - The name of the Azure OpenAI service
+- `AZURE_SEARCH_SERVICE_NAME` - The name of the Azure Search service
+- `AZURE_STORAGE_ACCOUNT_NAME` - The name of the Storage Account
+- `AZURE_KEYVAULT_NAME` - The name of the Key Vault
+- `AZURE_CONTAINER_REGISTRY_NAME` - The name of the container registry
+- `AZURE_APPLICATION_INSIGHTS_NAME` - The name of the Application Insights instance
+- `AZURE_LOG_ANALYTICS_WORKSPACE_NAME` - The name of the Log Analytics workspace used by Application Insights
 
-- Personal Use: Users may use the materials for personal learning and educational purposes.
-- Modification: Users may modify the materials to suit their needs.
-- Non-Commercial Use: Commercial use is strictly prohibited.
-- Attribution: Users must give appropriate credit to the author and include a link to the original materials.
-- Share-Alike: Any derivative works based on these materials must be shared under the same license terms.
+Run `azd config set <key> <value>` after initializing the template to override the resource names
 
-For commercial use please contact the author via [LinkedIn](https://www.linkedin.com/in/alexander-kastil-3bb26511a/) or [email](mailto:alexander.kastil@integrations.at)
+### Next Steps
 
+Bring your code to the sample, configure the `azure.yaml` file and deploy to Azure using `azd deploy`!
+
+## Reporting Issues and Feedback
+
+If you have any feature requests, issues, or areas for improvement, please [file an issue](https://aka.ms/azure-dev/issues). To keep up-to-date, ask questions, or share suggestions, join our [GitHub Discussions](https://aka.ms/azure-dev/discussions). You may also contact us via AzDevTeam@microsoft.com.
