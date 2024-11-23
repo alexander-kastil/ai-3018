@@ -1,0 +1,14 @@
+{
+  "name": "azure-llm",
+  "version": "1.0.0",
+  "description": "a simple azure open ai prompting sample",
+  "main": "azure-prompting.js",
+  "scripts": {
+    "start": "node azure-prompting.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.7"
+  }
+}

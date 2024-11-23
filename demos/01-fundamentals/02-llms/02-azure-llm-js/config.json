@@ -1,0 +1,6 @@
+{
+    "AZURE_OPENAI_ENDPOINT": "https://ai-dev-openai767221091702.openai.azure.com",
+    "AZURE_OPENAI_API_KEY": "8h0NMkksgPB5boQGE8LyDFRdA2RogW0ilBX9Ity3fslfZrB3IafyJQQJ99AKACHYHv6XJ3w3AAAAACOGpVur",
+    "AZURE_OPENAI_DEPLOYMENT": "gpt-4o-mini",
+    "AZURE_OPENAI_API_VERSION": "2024-08-01-preview"
+}
