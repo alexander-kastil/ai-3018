@@ -30,6 +30,7 @@ azd init --template https://github.com/Azure-Samples/azd-aistudio-starter
 azd up
 ```
 
+>Note: The `Azure AI Studio Starter template` has been customized to deploy the `gpt-4o-mini` model by default. Also it does not deploy the `Machine Learning Workspace`.
 ## Azure AI Studio Starter Template
 
 ### Quickstart

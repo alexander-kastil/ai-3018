@@ -4,3 +4,4 @@
 - Working with Topics 
 - Automating task with Actions
 - Publishing your Copilot
+- Agent with Knowledge (optional)
