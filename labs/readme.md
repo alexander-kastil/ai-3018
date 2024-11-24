@@ -1,3 +1,3 @@
 # Labs
 
-[Copilot Foundations](https://learn.microsoft.com/en-us/training/paths/copilot-foundations/)
+[Copilot Foundations Learning Path](https://learn.microsoft.com/en-us/training/paths/copilot-foundations/)
