@@ -27,6 +27,8 @@ Companion Material for Class Delivery by [Alexander Kastil](https://www.integrat
 
 - Copilot Studio License:
 
+    - [Copilot Studio Trial](https://learn.microsoft.com/en-us/microsoft-copilot-studio/sign-up-individual)
+
 ## Contributing
 
 Feel free to contribute. When contribute implement your changes / additions on a feature branch in your fork and issue a pull request after completion. An introduction video into forks and pull requests can be found [here](https://www.youtube.com/watch?v=nT8KGYVurIU)
